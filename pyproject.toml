@@ -1,0 +1,34 @@
+[project]
+name = "nikon-microscope"
+version = "0.1.0"
+description = "Live preview and image capture for Nikon microscope cameras (DS-Fi3), cross-platform."
+readme = "README.md"
+authors = [
+    { name = "Matthias Maile", email = "matthias-werner-yarael.maile@weizmann.ac.il" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0",
+    "pillow>=10.0",
+    "pyside6-essentials>=6.7",
+    "tifffile>=2024.1",
+]
+
+[project.scripts]
+nikon-microscope = "nikon_microscope:main"
+
+[build-system]
+requires = ["uv_build>=0.12.21,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

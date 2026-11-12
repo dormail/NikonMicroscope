@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+# Hardware probe output and USB captures can be large / machine-specific
+/probe-output/
+*.pcap
+*.pcapng
