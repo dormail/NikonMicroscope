@@ -11,7 +11,12 @@ driver, and which route to take is still open. See
 
 ## Run
 
-Requires [uv](https://docs.astral.sh/uv/).
+Requires [uv](https://docs.astral.sh/uv/). On Ubuntu/Debian with X11 the GUI
+also needs one system library that Qt does not bundle:
+
+```sh
+sudo apt install libxcb-cursor0
+```
 
 ```sh
 uv sync                                   # create .venv and install everything

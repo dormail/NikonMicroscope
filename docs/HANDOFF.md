@@ -27,13 +27,19 @@ Not done:
 ```sh
 git clone git@github.com:dormail/NikonMicroscope.git && cd NikonMicroscope
 # install uv if missing: https://docs.astral.sh/uv/getting-started/installation/
+sudo apt install libxcb-cursor0   # Ubuntu/Debian on X11: Qt's xcb plugin needs it
 uv sync
 uv run pytest                 # should pass without any hardware
 uv run nikon-microscope       # GUI with the simulated camera
 ```
 
-If the GUI fails to start on Ubuntu with an "xcb" platform plugin error:
-`sudo apt install libxcb-cursor0`.
+Without `libxcb-cursor0` the GUI aborts at start with "Could not load the Qt
+platform plugin xcb" (seen on Ubuntu 24.04). The tests still pass in that
+case because they use Qt's offscreen platform, so a green test run does not
+prove the window can open.
+
+The GUI has so far only been rendered offscreen; it has not yet been opened
+on a real display.
 
 ## Next steps, in order
 
